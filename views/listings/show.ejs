@@ -1,0 +1,82 @@
+<% layout('/layouts/boilerplate.ejs') -%>
+
+<div class="row mt-4 px-2 " style="min-height: 88vh;">
+  <div class="card border-none col-md-8 offset-md-2 mb-3">
+    <h3>Details of <%= listing.title %> :</h3>
+    <img
+      src="<%= listing.image.url  %>"
+      class="card-img-top rounded-3 img-fluid"
+      alt="<%= listing.image.filename  %>"
+      style="max-height:40vh; object-fit:cover;"
+    />
+    <div class="card-body">
+      <div class="row card-text mb-2 text-justify">
+        <span class="col-xl-2 col-md-3 "><strong class="me-3">About</strong>&rarr; </span>
+        <span class=" col-md-8 desc col-xl-9 " ><%= listing.description %></span>
+      </div>
+      <p class="card-text"><strong class="me-4">Rent</strong>&rarr;&nbsp;&nbsp;&nbsp; &#8377;<%= listing.price.toLocaleString("en-IN") %> / night</p>
+      <p class="card-text"><strong class="me-2">Country</strong>&rarr;&nbsp;&nbsp; <%= listing.country %></p>
+      <p class="card-text"><b class="me-2">Location</b> &rarr;&nbsp;&nbsp; <%= listing.location %></p>
+      <p class="card-text mt-5">
+        <div class="container-fluid  d-flex">
+          <a href="/listings/<%= listing._id %>/edit" class="text-decoration-none btn me-4 btn-primary">Edit</a>
+        <form method="POST" action="/listings/<%=listing._id%>?_method=DELETE">
+          <button class="btn btn-danger">Delete</button>
+        </form>
+        </div>
+      </p>
+    </div>
+  </div>
+</div>
+<hr>
+<div class="container p-4">
+  <form action="/listings/<%= listing._id %>/reviews" method="post" novalidate  class="row col-md-8 offset-md-2 needs-validation mb-3" reviewForm>
+    <h3>Create Your Review</h3>
+    <div class="row col-12 mt-3 flex-sm-row flex-column">
+      <div class="col-sm-4">
+        <label for="customRange2" class="form-label">Rating</label>
+        <input type="range" class="form-range" value="4" name="reviews[rating]" min="0" max="5" id="customRange2">
+      </div>
+      <div class="col">
+        <button class="btn btn-outline-success mt-4">submit</button>
+      </div>
+    </div>
+    <div class="col-md-12">
+      <label for="formControlTextarea" class="form-label">Review</label>
+      <textarea
+      class="form-control"
+      id="formControlTextarea"
+      name="reviews[description]"
+        rows="3"
+        placeholder="Leave your Review"
+        required
+        ></textarea>
+        <div class="invalid-feedback mt-2"><img src="https://i.pinimg.com/474x/f5/66/c7/f566c70f10b7551b9806a3646cf683db.jpg" alt="review emoji">Please enter some review</div>
+      </div>
+  </form>
+</div>
+<hr>
+
+<div class="col-md-12 offset-md-1 container p-4">
+  <% if(listing.listingReviews.length){ %>
+    <h3>Older Reviews</h3>
+    <div class="row gap-lg-4 gap-sm-5 mt-4">
+      <% for(review of listing.listingReviews){ %>
+        <div class="review-card position-relative col-sm-5 col-lg-3 p-4 mt-2">
+          <p><strong>Rating : </strong><%= review.rating %>  
+            <% for(let i=0;i<review.rating;i++){ %> 
+              <span style="font-size:120%;color:red;">&starf;</span>
+              <% } %>
+            </p>
+            <p><strong>Review : </strong><%= review.description %> </p>
+            <form action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE" method="post">
+          <button class="btn btn-outline-dark position-absolute bottom-0 end-0">Delete</button>
+        </form>
+      </div>  
+   <% } %>
+  </div>
+  <% }else{ %>
+    <h3>No Older Reviews</h3>    
+    <% } %>
+</div>
+

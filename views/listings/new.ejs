@@ -1,0 +1,91 @@
+<% layout('/layouts/boilerplate.ejs') -%>
+
+<h2 class="mt-4 text-center text-decoration-underline">Create a New Listing</h2>
+
+<div class="row">
+  <form
+    method="POST"
+    class="row mx-auto offset-2 col-md-8 g-3 p-4 needs-validation"
+    action="/listings"
+    novalidate
+  >
+    <div class="col-md-6">
+      <label for="inputTitle" class="form-label">Title</label>
+      <input
+        type="text"
+        class="form-control"
+        id="inputTitle"
+        name="listing[title]"
+        placeholder="Enter title"
+        required
+      />
+      <div class="invalid-feedback">Please Enter a Valid Title</div>
+    </div>
+
+    <div class="col-md-6">
+      <label for="inputLink" class="form-label">Image URL/Link</label>
+      <input
+        type="text"
+        class="form-control"
+        id="inputLink"
+        name="listing[image]"
+        placeholder="Enter image URL/Link"
+        value="https://images.unsplash.com/photo-1625505826533-5c80aca7d157?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGdvYXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60"
+      />
+    </div>
+
+    <div class="col-md-4">
+      <label for="inputPrice" class="form-label">Price</label>
+      <input
+        type="number"
+        class="form-control"
+        id="inputPrice"
+        name="listing[price]"
+        placeholder="Enter Price"
+        min="0"
+        required
+      />
+      <div class="invalid-feedback">Please Enter a valid Price</div>
+    </div>
+
+    <div class="col-md-4">
+      <label for="inputCountry" class="form-label">Country</label>
+      <input
+        type="text"
+        class="form-control"
+        id="inputCountry"
+        name="listing[country]"
+        placeholder="Enter Country Name"
+        required
+      />
+      <div class="invalid-feedback">Please Enter a valid Country</div>
+    </div>
+
+    <div class="col-md-4">
+      <label for="inputLocation" class="form-label">Location</label>
+      <input
+        type="text"
+        class="form-control"
+        id="inputLocation"
+        name="listing[location]"
+        placeholder="Enter Location"
+        required
+      />
+      <div class="invalid-feedback">Please Enter a Location</div>
+    </div>
+
+    <div class="col-md-12">
+      <label for="formControlTextarea" class="form-label">Description</label>
+      <textarea
+        class="form-control"
+        id="formControlTextarea"
+        name="listing[description]"
+        placeholder="Enter Description"
+        rows="3"
+        required
+      ></textarea>
+      <div class="invalid-feedback">Give a little Description</div>
+    </div>
+    <button class="btn btn-danger">Add</button>
+  </form>
+</div>

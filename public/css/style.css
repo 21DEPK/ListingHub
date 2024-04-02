@@ -1,0 +1,77 @@
+body {
+  overflow-x: hidden;
+}
+ul {
+  list-style-type: none;
+}
+.row {
+  max-width: 100vw;
+}
+.card-img-top {
+  height: 280px;
+  width: 100%;
+}
+.text-justify {
+  text-align: justify;
+}
+.card {
+  min-height: 440px;
+  border: none;
+}
+.card-img-overlay {
+  opacity: 1;
+}
+.card-img-overlay:hover {
+  opacity: 0.2;
+  background-color: #fff;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+footer a:hover {
+  color: red !important;
+  scale: 1.4;
+}
+.form-control:focus {
+  box-shadow: none;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  appearance: none;
+  margin: 0;
+}
+textarea {
+  resize: none;
+}
+.desc {
+  margin-left: 0.4% !important;
+}
+.listing-img {
+  height: 320px;
+}
+[reviewForm] {
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 2%;
+}
+[alt="review emoji"] {
+  height: 35px;
+  width: 35px;
+}
+
+.review-card {
+  min-height: 80px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+}
+
+footer {
+  background-color: #f8f9fa !important;
+}
+
+@media screen and (min-width: 760px) {
+  .desc {
+    margin-left: -6% !important;
+  }
+}
