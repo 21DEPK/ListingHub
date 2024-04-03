@@ -1,0 +1,46 @@
+<% layout('/layouts/boilerplate.ejs') -%>
+
+<div class="row mx-4">
+  <h2 class="mt-4 text-center text-decoration-underline">Login</h2>
+  <form
+    method="post"
+    class="row border rounded-4 mx-auto offset-2 col-md-5 g-3 p-4"
+    action="/users/login"
+    novalidate
+  >
+    <div class="col-12">
+      <label for="inputUsername" class="form-label"
+        >Username <span class="text-danger">*</span></label
+      >
+      <input
+        type="text"
+        class="form-control"
+        id="inputUsername"
+        name="user[username]"
+        placeholder="Username"
+      />
+    </div>
+
+    <div class="col-12">
+      <label for="inputPass" class="form-label"
+        >Password <span class="text-danger">*</span></label
+      >
+      <input
+        type="password"
+        class="form-control"
+        id="inputPass"
+        name="user[password]"
+        placeholder="Enter Password"
+        required
+      />
+    </div>
+    <button class="btn mt-5 btn-secondary">Login</button>
+  </form>
+</div>
+
+<p class="text-center fs-6 d-block mt-3">
+  New User? Create an account
+  <span class="text-decoration-underline text-danger"
+    ><a href="/users/signup" class="text-danger">SignUp Here</a></span
+  >
+</p>

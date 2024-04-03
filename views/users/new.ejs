@@ -1,0 +1,66 @@
+<% layout('/layouts/boilerplate.ejs') -%>
+
+<div class="row px-2">
+  <h2 class="mt-4 text-center text-decoration-underline">
+    SignUp On Wanderlust
+  </h2>
+  <form
+    method="POST"
+    class="row border rounded-4 mx-auto offset-2 col-md-5 g-3 p-4 needs-validation"
+    action="/users/signup"
+    novalidate
+  >
+    <div class="col-12">
+      <label for="inputName" class="form-label"
+        >Username <span class="text-danger">*</span></label
+      >
+      <input
+        type="text"
+        class="form-control"
+        id="inputName"
+        name="user[username]"
+        placeholder="Enter Your Name"
+        required
+      />
+      <div class="invalid-feedback">Please Enter Your UserName</div>
+    </div>
+
+    <div class="col-12">
+      <label for="inputEmail" class="form-label"
+        >Email <span class="text-danger">*</span></label
+      >
+      <input
+        type="email"
+        class="form-control"
+        id="inputEmail"
+        name="user[email]"
+        placeholder="Email"
+        required
+      />
+      <div class="invalid-feedback">Please Enter Valid Email</div>
+    </div>
+
+    <div class="col-12">
+      <label for="inputPrice" class="form-label"
+        >Password <span class="text-danger">*</span></label
+      >
+      <input
+        type="password"
+        class="form-control"
+        id="inputPrice"
+        name="user[password]"
+        placeholder="Enter Password"
+        required
+      />
+      <div class="invalid-feedback">Please Enter Valid Password</div>
+    </div>
+    <button class="btn mt-5 btn-secondary">Sign Up</button>
+  </form>
+</div>
+
+<p class="text-center fs-6 d-block mt-3">
+  Already have an Account
+  <span class="text-decoration-underline text-danger"
+    ><a href="/users/login" class="text-danger">Login Here</a></span
+  >
+</p>

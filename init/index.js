@@ -4,26 +4,61 @@ const Listing = require("../models/listing.js");
 
 const MONGO_URL = "mongodb://127.0.0.1:27017/wanderlust";
 
-main()
-  .then(() => {
-    console.log("connected to DB");
-  })
-  .catch((err) => {
-    console.log(err);
-  });
+// async function main() {
+//   await mongoose.connect(MONGO_URL);
+// }
 
-async function main() {
-  await mongoose.connect(MONGO_URL);
-}
+// main()
+//   .then(() => {
+//     console.log("connected to DB");
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//   });
 
-const initDB = async () => {
-  try {
-    await Listing.deleteMany({}); // empty the database
-    await Listing.insertMany(initData);
-    console.log("data was initialized");
-  } catch (e) {
-    console.log("Error during initializing database --> ", e._message);
-  }
-};
+// const initDB = async () => {
+//   try {
+//     await Listing.deleteMany({}); // empty the database
+//     await Listing.insertMany(initData);
+//     console.log("data was initialized");
+//   } catch (e) {
+//     console.log("Error during initializing database --> ", e._message);
+//   }
+// };
 
-initDB();
+// initDB();
+
+// convert data.js to data.json
+
+// const data = require("./data.js");
+// const fs = require("fs");
+
+// let jsonData = JSON.stringify(data);
+// console.log(jsonData);
+
+// fs.writeFile("data.json", `${jsonData}`, function (err) {
+//   if (err) throw err;
+//   console.log("Saved!");
+// });
+
+// cloud mongodb connection
+
+const { MongoClient } = require("mongodb");
+const fs = require("fs");
+const uri =
+  "mongodb+srv://deepak2121:deepak%40mongodbatlas@wanderlust.7z36mye.mongodb.net/?retryWrites=true&w=majority&appName=WanderLust";
+
+// Create a MongoClient with a MongoClientOptions object to set the Stable API version
+// const client = new MongoClient(uri);
+
+// async function run() {
+//   try {
+//     const database = client.db("wanderlust").collection("listings");
+//     const query = { price: { $gt: 1700 } };
+//     const result = await database.findOne(query);
+//     console.log(result);
+//   } finally {
+//     await client.close();
+//   }
+// }
+// run().catch(console.dir);

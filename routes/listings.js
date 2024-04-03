@@ -3,6 +3,7 @@ const router = express.Router();
 const Listing = require("../models/listing.js");
 const wrapAsync = require("../utils/wrapAsync.js");
 const MONGO_URL = "mongodb://127.0.0.1:27017/wanderlust";
+const { isLoggedIn } = require("../middlewares.js");
 
 // home route
 router.get(
@@ -15,7 +16,7 @@ router.get(
 );
 
 //New Route
-router.get("/new", (req, res) => {
+router.get("/new", isLoggedIn, (req, res) => {
   res.render("listings/new");
 });
 
@@ -33,6 +34,7 @@ router.get(
 //Create Route
 router.post(
   "/",
+  isLoggedIn,
   wrapAsync(async (req, res) => {
     try {
       const newListing = new Listing(req.body.listing);
@@ -40,6 +42,7 @@ router.post(
     } catch (err) {
       console.log("Error --> ", err._message);
     }
+    req.flash("success", "New Listing Created!");
     res.redirect("/");
   })
 );
@@ -57,9 +60,11 @@ router.get(
 //Update Route
 router.put(
   "/:id",
+  isLoggedIn,
   wrapAsync(async (req, res) => {
     let { id } = req.params;
     await Listing.findByIdAndUpdate(id, { ...req.body.listing });
+    req.flash("success", "Listing Updated!");
     res.redirect(`/listings/${id}`);
   })
 );
@@ -67,9 +72,11 @@ router.put(
 //Delete Route
 router.delete(
   "/:id",
+  isLoggedIn,
   wrapAsync(async (req, res) => {
     let { id } = req.params;
     await Listing.findByIdAndDelete(id);
+    req.flash("error", "Listing Deleted!");
     res.redirect("/");
   })
 );

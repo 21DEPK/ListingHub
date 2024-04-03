@@ -21,7 +21,9 @@
     <link rel="stylesheet" href="/css/style.css" />
   </head>
   <body>
-    <%- include('../includes/navbar.ejs') %>
+    <%- include('../includes/navbar.ejs') %> <%-
+    include('../includes/success.ejs') %> <%- include('../includes/error.ejs')
+    %>
 
     <div class="container-fluid" style="min-height: 76vh"><%- body -%></div>
 
