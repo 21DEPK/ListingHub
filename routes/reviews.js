@@ -1,5 +1,5 @@
 const express = require("express");
-const router = express.Router({ mergeParams: true });
+const router = express.Router();
 const Review = require("../models/review.js");
 const wrapAsync = require("../utils/wrapAsync.js");
 const Listing = require("../models/listing.js");
@@ -8,11 +8,10 @@ const Listing = require("../models/listing.js");
 router.post(
   "/",
   wrapAsync(async (req, res) => {
-    let { listingId } = req.params;
+    let listingId = req.originalUrl.split("/")[2];
     let newReview = new Review(req.body.reviews);
     let listing = await Listing.findById(listingId);
     listing.listingReviews.push(newReview);
-
     await newReview.save();
     await listing.save();
     req.flash("success", "New Review Created!");

@@ -10,8 +10,9 @@ router.get(
   "/",
   wrapAsync(async (req, res) => {
     const data = await Listing.find({});
-    // let sortedData = data.sort((a, b) => a.price - b.price);
-    res.render("listings/home", { data });
+    res.render("listings/home", {
+      data,
+    });
   })
 );
 
@@ -50,6 +51,7 @@ router.post(
 //Edit Route
 router.get(
   "/:id/edit",
+  isLoggedIn,
   wrapAsync(async (req, res) => {
     let { id } = req.params;
     const listing = await Listing.findById(id);

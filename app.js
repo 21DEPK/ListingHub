@@ -9,7 +9,7 @@ const User = require("./models/User");
 const session = require("express-session");
 const passport = require("passport");
 const flash = require("connect-flash");
-const LocalStrategy = require("passport-local");
+const LocalStrategy = require("passport-local").Strategy;
 const listingRoutes = require("./routes/listings.js"), //requiring routes
   reviewRoutes = require("./routes/reviews.js"),
   userRoutes = require("./routes/users.js");
@@ -48,14 +48,17 @@ app.use(flash()); // using flash middleware
 app.use(session(sessionOptions)); // session middleware
 app.use(passport.initialize());
 app.use(passport.session());
-passport.use(new LocalStrategy(User.authenticate())); // authenticating with local strategy
-passport.serializeUser(User.serializeUser()); // serializing the user to be stored in sessions
-passport.deserializeUser(User.deserializeUser()); // deserializing the user to be removed from sessions
 app.use((req, res, next) => {
   res.locals.success = req.flash("success");
   res.locals.error = req.flash("error");
+  if (!res.locals.loggedIn) {
+    res.locals.loggedIn = req.isAuthenticated();
+  }
   next();
 });
+passport.use(new LocalStrategy(User.authenticate())); // authenticating with local strategy
+passport.serializeUser(User.serializeUser()); // serializing the user to be stored in sessions
+passport.deserializeUser(User.deserializeUser()); // deserializing the user to be removed from sessions
 
 // index route
 app.get("/", (req, res) => {
