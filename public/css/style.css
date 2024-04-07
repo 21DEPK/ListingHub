@@ -1,5 +1,6 @@
 body {
   overflow-x: hidden;
+  user-select: none;
 }
 ul {
   list-style-type: none;
@@ -60,10 +61,19 @@ textarea {
   width: 35px;
 }
 
+.logout {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
 .review-card {
   min-height: 80px;
   border: 2px solid #ddd;
   border-radius: 8px;
+}
+.review-card p {
+  margin-bottom: 4px !important;
 }
 
 footer {

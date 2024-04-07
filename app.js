@@ -15,15 +15,6 @@ const listingRoutes = require("./routes/listings.js"), //requiring routes
   userRoutes = require("./routes/users.js");
 const app = express();
 
-// {listingSchema,reviewSchema} = require("./schema.js");
-
-// function listingValidator(req,res,next){
-
-// }
-// function reviewsValidator(req,res,next){
-
-// }
-
 app.set("view engine", "ejs");
 app.engine("ejs", ejsMate);
 app.set("views", path.join(__dirname, "/views"));
@@ -52,7 +43,7 @@ app.use((req, res, next) => {
   res.locals.success = req.flash("success");
   res.locals.error = req.flash("error");
   if (!res.locals.loggedIn) {
-    res.locals.loggedIn = req.isAuthenticated();
+    res.locals.currentUser = req.user;
   }
   next();
 });
@@ -75,7 +66,9 @@ app.all("*", (req, res, next) => {
 // express error
 app.use((err, req, res, next) => {
   let { statusCode, message } = err;
-  res.status(404).send(message);
+  res.send(
+    `ERROR --> ${message}\n Go to Home Page <a href="/listings"><img style="background-color:red;border-radius:50%;margin-left:20px;margin-top:4px" width="30px" height="30px" src="https://cdn-icons-png.flaticon.com/512/25/25694.png" alt="Home route"></a>`
+  );
 });
 
 // server listening

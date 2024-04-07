@@ -10,6 +10,7 @@
       style="max-height:40vh; object-fit:cover;"
     />
     <div class="card-body">
+      <p class="card-text"><strong class="me-4">Owned by</strong>&rarr;&nbsp;&nbsp;&nbsp; <strong><%= listing.owner.username %></strong></p>
       <div class="row card-text mb-2 text-justify">
         <span class="col-xl-2 col-md-3 "><strong class="me-3">About</strong>&rarr; </span>
         <span class=" col-md-8 desc col-xl-9 " ><%= listing.description %></span>
@@ -17,28 +18,50 @@
       <p class="card-text"><strong class="me-4">Rent</strong>&rarr;&nbsp;&nbsp;&nbsp; &#8377;<%= listing.price.toLocaleString("en-IN") %> / night</p>
       <p class="card-text"><strong class="me-2">Country</strong>&rarr;&nbsp;&nbsp; <%= listing.country %></p>
       <p class="card-text"><b class="me-2">Location</b> &rarr;&nbsp;&nbsp; <%= listing.location %></p>
-      <p class="card-text mt-5">
-        <div class="container-fluid  d-flex">
-          <a href="/listings/<%= listing._id %>/edit" class="text-decoration-none btn me-4 btn-primary">Edit</a>
-        <form method="POST" action="/listings/<%=listing._id%>?_method=DELETE">
-          <button class="btn btn-danger">Delete</button>
-        </form>
-        </div>
-      </p>
+      <% if(currentUser && currentUser.username === listing.owner.username){ %>
+        <p class="card-text mt-5">
+          <div class="container-fluid  d-flex">
+            <a href="/listings/<%= listing._id %>/edit" class="text-decoration-none btn me-4 btn-primary">Edit</a>
+          <form method="POST" action="/listings/<%=listing._id%>?_method=DELETE">
+            <button class="btn btn-danger">Delete</button>
+          </form>
+          </div>
+        </p>
+      <% } %>
     </div>
   </div>
 </div>
 <hr>
+
+<% if(currentUser){ %>
 <div class="container p-4">
   <form action="/listings/<%= listing._id %>/reviews" method="post" novalidate  class="row col-md-8 offset-md-2 needs-validation mb-3" reviewForm>
     <h3>Create Your Review</h3>
-    <div class="row col-12 mt-3 flex-sm-row flex-column">
-      <div class="col-sm-4">
-        <label for="customRange2" class="form-label">Rating</label>
-        <input type="range" class="form-range" value="4" name="reviews[rating]" min="0" max="5" id="customRange2">
-      </div>
-      <div class="col">
-        <button class="btn btn-outline-success mt-4">submit</button>
+    <div class="row col-12 mt-3 flex-sm-row flex-md-column">
+      <div class="col-sm-8">
+        <label for="starsRating" class="form-label">Rating</label>
+        <fieldset id="starsRating" class="starability-slot">
+          <input
+            type="radio"
+            id="no-rate"
+            class="input-no-rate"
+            name="reviews[rating]"
+            value="0"
+            checked
+            aria-label="No rating."
+          />
+          <input type="radio" id="first-rate1" name="reviews[rating]" value="1" />
+          <label for="first-rate1" title="Terrible">1 star</label>
+          <input type="radio" id="first-rate2" name="reviews[rating]" value="2" />
+          <label for="first-rate2" title="Not good">2 stars</label>
+          <input type="radio" id="first-rate3" name="reviews[rating]" value="3" />
+          <label for="first-rate3" title="Average">3 stars</label>
+          <input type="radio" id="first-rate4" name="reviews[rating]" value="4" />
+          <label for="first-rate4" title="Very good">4 stars</label>
+          <input type="radio" id="first-rate5" name="reviews[rating]" value="5" />
+          <label for="first-rate5" title="Amazing">5 stars</label>
+        </fieldset>
+        
       </div>
     </div>
     <div class="col-md-12">
@@ -53,9 +76,13 @@
         ></textarea>
         <div class="invalid-feedback mt-2"><img src="https://i.pinimg.com/474x/f5/66/c7/f566c70f10b7551b9806a3646cf683db.jpg" alt="review emoji">Please enter some review</div>
       </div>
+      <div class="col">
+        <button class="btn btn-outline-success mt-4">submit</button>
+      </div>
   </form>
 </div>
 <hr>
+<% } %>
 
 <div class="col-md-12 offset-md-1 container p-4">
   <% if(listing.listingReviews.length){ %>
@@ -63,15 +90,18 @@
     <div class="row gap-lg-4 gap-sm-5 mt-4">
       <% for(review of listing.listingReviews){ %>
         <div class="review-card position-relative col-sm-5 col-lg-3 p-4 mt-2">
-          <p><strong>Rating : </strong><%= review.rating %>  
+          <p class="mb-1"><strong>Creater : </strong>@<%= review.createdBy.username %></p>
+          <p style="margin-top: -6px;"><strong>Rating : </strong>  
             <% for(let i=0;i<review.rating;i++){ %> 
-              <span style="font-size:120%;color:red;">&starf;</span>
+              <span style="font-size:140%;<% if(i!=0){ %>margin-left:-6px;<% } %>color:red;">&starf;</span>
               <% } %>
             </p>
-            <p><strong>Review : </strong><%= review.description %> </p>
-            <form action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE" method="post">
-          <button class="btn btn-outline-dark position-absolute bottom-0 end-0">Delete</button>
-        </form>
+            <p><strong>Comment : </strong><%= review.description %> </p>
+            <% if(currentUser && review.createdBy.username===currentUser.username){ %>
+              <form action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE" method="post">
+                <button class="btn btn-outline-dark position-absolute bottom-0 end-0">Delete</button>
+              </form>
+              <% } %>
       </div>  
    <% } %>
   </div>
