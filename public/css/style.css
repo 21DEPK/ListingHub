@@ -51,6 +51,16 @@ textarea {
 .listing-img {
   height: 320px;
 }
+
+[preview] {
+  max-height: 200px;
+  max-width: 400px;
+  object-fit: cover;
+}
+figcaption {
+  color: red;
+}
+
 [reviewForm] {
   border: 1px solid #ddd;
   border-radius: 12px;

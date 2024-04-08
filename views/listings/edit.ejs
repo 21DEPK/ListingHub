@@ -6,6 +6,7 @@
     method="POST"
     class="row mx-auto offset-2 col-md-8 g-3 p-4 needs-validation"
     action="/listings/<%= listing._id %>?_method=PUT"
+    enctype="multipart/form-data"
     novalidate
   >
     <div class="col-md-6">
@@ -18,22 +19,10 @@
         value="<%= listing.title %>"
         required
       />
-      <div class="invalid-feedback">Please Enter a Valid Title</div>
+      <div class="invalid-feedback">Enter a Valid Title</div>
     </div>
 
     <div class="col-md-6">
-      <label for="inputLink" class="form-label">Image URL/Link</label>
-      <input
-        type="text"
-        class="form-control"
-        id="inputLink"
-        name="listing[image]"
-        value="<%= listing.image.url %>"
-        required
-      />
-    </div>
-
-    <div class="col-md-4">
       <label for="inputPrice" class="form-label">Price</label>
       <input
         type="number"
@@ -44,10 +33,32 @@
         min="0"
         required
       />
-      <div class="invalid-feedback">Please Enter a valid Price</div>
+      <div class="invalid-feedback">Enter a valid Price</div>
     </div>
 
-    <div class="col-md-4">
+    <div class="col-md-12">
+      <div class="col-md-12">
+        <label for="inputLink" class="form-label">Upload new Image</label>
+        <input
+          type="file"
+          class="form-control"
+          id="inputLink"
+          name="listing[image]"
+        />
+      </div>
+      <figure>
+        <img
+          class="rounded-2 mt-3"
+          preview
+          title="preview of older image"
+          src="<%= listing.image.url %>"
+          alt="<%= listing.image.filename%>"
+        />
+        <figcaption>*previous image</figcaption>
+      </figure>
+    </div>
+
+    <div class="col-md-6">
       <label for="inputCountry" class="form-label">Country</label>
       <input
         type="text"
@@ -57,10 +68,10 @@
         value="<%= listing.country %>"
         required
       />
-      <div class="invalid-feedback">Please Enter a valid Country</div>
+      <div class="invalid-feedback">Enter a valid Country</div>
     </div>
 
-    <div class="col-md-4">
+    <div class="col-md-6">
       <label for="inputLocation" class="form-label">Location</label>
       <input
         type="text"
@@ -70,7 +81,7 @@
         value="<%= listing.location %>"
         required
       />
-      <div class="invalid-feedback">Please Enter a Location</div>
+      <div class="invalid-feedback">Enter a Location</div>
     </div>
 
     <div class="col-md-12">

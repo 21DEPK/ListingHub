@@ -31,15 +31,11 @@ module.exports.renderNewListingForm = (req, res) => {
 module.exports.create = async (req, res) => {
   try {
     const newListing = new Listing({
-      title: req.body.listing.title,
+      ...req.body.listing,
       image: {
-        filename: "listingimage",
-        url: req.body.listing.image,
+        filename: req.file.filename,
+        url: req.file.path,
       },
-      price: req.body.listing.price,
-      country: req.body.listing.country,
-      location: req.body.listing.location,
-      description: req.body.listing.description,
       owner: req.user._id,
     });
     await newListing.save();
@@ -60,18 +56,18 @@ module.exports.editForm = async (req, res) => {
 // update
 module.exports.updateListing = async (req, res) => {
   let { id } = req.params;
-  await Listing.findByIdAndUpdate(id, {
-    title: req.body.listing.title,
-    image: {
-      filename: "listingimage",
-      url: req.body.listing.image,
-    },
-    price: req.body.listing.price,
-    country: req.body.listing.country,
-    location: req.body.listing.location,
-    description: req.body.listing.description,
-    owner: req.user._id,
+
+  let result = await Listing.findByIdAndUpdate(id, {
+    ...req.body.listing,
   });
+  if (req.file) {
+    result.image = {
+      filename: req.file.filename,
+      url: req.file.path,
+    };
+    await result.save();
+  }
+
   req.flash("success", "Listing Updated!");
   res.redirect(`/listings/${id}`);
 };

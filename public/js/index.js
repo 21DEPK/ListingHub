@@ -20,3 +20,9 @@
     );
   });
 })();
+
+setTimeout(() => {
+  if (document.querySelector("[data-bs-dismiss]")) {
+    document.querySelector("[data-bs-dismiss]").click();
+  }
+}, 1600);

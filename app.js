@@ -1,4 +1,5 @@
 require("./utils/dbConnection.js")();
+require("dotenv").config();
 const express = require("express"),
   path = require("path"),
   ejsMate = require("ejs-mate"),
@@ -19,7 +20,7 @@ app.set("view engine", "ejs");
 app.engine("ejs", ejsMate);
 app.set("views", path.join(__dirname, "/views"));
 const sessionOptions = {
-  secret: "keyboard cat",
+  secret: process.env.SECRET || "keyboard cat",
   resave: false,
   saveUninitialized: true,
   cookie: {
