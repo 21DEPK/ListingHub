@@ -67,9 +67,7 @@ app.all("*", (req, res, next) => {
 // express error
 app.use((err, req, res, next) => {
   let { statusCode, message } = err;
-  res.send(
-    `ERROR --> ${message}\n Go to Home Page <a href="/listings"><img style="background-color:red;border-radius:50%;margin-left:20px;margin-top:4px" width="30px" height="30px" src="https://cdn-icons-png.flaticon.com/512/25/25694.png" alt="Home route"></a>`
-  );
+  res.render("ERROR", { statusCode, message });
 });
 
 // server listening

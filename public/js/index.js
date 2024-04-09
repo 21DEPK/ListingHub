@@ -26,3 +26,9 @@ setTimeout(() => {
     document.querySelector("[data-bs-dismiss]").click();
   }
 }, 1600);
+
+if (document.querySelector(".home")) {
+  document.querySelector(".home").addEventListener("click", () => {
+    location.href = `${location.origin}/`;
+  });
+}
