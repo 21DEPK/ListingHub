@@ -2,7 +2,14 @@ const Listing = require("../models/listing");
 
 // index
 module.exports.home = async (req, res) => {
-  const data = await Listing.find({});
+  const data = await Listing.find({})
+    .populate({
+      path: "listingReviews",
+      populate: {
+        path: "createdBy",
+      },
+    })
+    .populate("owner");
   res.render("listings/home", {
     data,
   });

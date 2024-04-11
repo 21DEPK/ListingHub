@@ -6,8 +6,9 @@ const express = require("express"),
   methodOverride = require("method-override"),
   expressError = require("./utils/customError.js"),
   cookie_parser = require("cookie-parser");
-const User = require("./models/User");
+const User = require("./models/user");
 const session = require("express-session");
+const MongoStore = require("connect-mongo");
 const passport = require("passport");
 const flash = require("connect-flash");
 const LocalStrategy = require("passport-local").Strategy;
@@ -20,8 +21,15 @@ app.set("view engine", "ejs");
 app.engine("ejs", ejsMate);
 app.set("views", path.join(__dirname, "/views"));
 const sessionOptions = {
-  secret: process.env.SECRET || "keyboard cat",
+  secret: process.env.SECRET,
   resave: false,
+  store: MongoStore.create({
+    mongoUrl: process.env.MONGO_URL,
+    crypto: {
+      secret: process.env.SECRET,
+    },
+    touchAfter: 24 * 60 * 60,
+  }),
   saveUninitialized: true,
   cookie: {
     httpOnly: true,
@@ -56,6 +64,8 @@ passport.deserializeUser(User.deserializeUser()); // deserializing the user to b
 app.get("/", (req, res) => {
   res.redirect("/listings");
 });
+
+// routes
 app.use("/listings", listingRoutes); // listing routes
 app.use("/listings/:listingId/reviews", reviewRoutes); // reviews routes
 app.use("/users", userRoutes); // users routes

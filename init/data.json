@@ -8,8 +8,10 @@
     },
     "price": 1500,
     "location": "Malibu",
+    "category": "Trending",
     "country": "United States",
-    "owner": "6611640752970d0ed0e48848"
+    "listingReviews": [],
+    "owner": "661778595655b95152475b65"
   },
   {
     "title": "Modern Loft in Downtown",
@@ -20,8 +22,10 @@
     },
     "price": 1200,
     "location": "New York City",
+    "category": "Mountains",
     "country": "United States",
-    "owner": "6611640752970d0ed0e48848"
+    "listingReviews": [],
+    "owner": "661778595655b95152475b65"
   },
   {
     "title": "Mountain Retreat",
@@ -32,8 +36,10 @@
     },
     "price": 1000,
     "location": "Aspen",
+    "category": "Castles",
     "country": "United States",
-    "owner": "6611640752970d0ed0e48848"
+    "listingReviews": [],
+    "owner": "661778595655b95152475b65"
   },
   {
     "title": "Historic Villa in Tuscany",
@@ -44,8 +50,10 @@
     },
     "price": 2500,
     "location": "Florence",
+    "category": "Amazing Pools",
     "country": "Italy",
-    "owner": "6611640752970d0ed0e48848"
+    "listingReviews": [],
+    "owner": "661778595655b95152475b65"
   },
   {
     "title": "Secluded Treehouse Getaway",
@@ -56,8 +64,10 @@
     },
     "price": 800,
     "location": "Portland",
+    "category": "Camping",
     "country": "United States",
-    "owner": "6611640752970d0ed0e48848"
+    "listingReviews": [],
+    "owner": "661778595655b95152475b65"
   },
   {
     "title": "Beachfront Paradise",
@@ -68,8 +78,10 @@
     },
     "price": 2000,
     "location": "Cancun",
+    "category": "Arctic",
     "country": "Mexico",
-    "owner": "6611640752970d0ed0e48848"
+    "listingReviews": [],
+    "owner": "661778595655b95152475b65"
   },
   {
     "title": "Rustic Cabin by the Lake",
@@ -80,8 +92,10 @@
     },
     "price": 900,
     "location": "Lake Tahoe",
+    "category": "Farms",
     "country": "United States",
-    "owner": "6611640752970d0ed0e48848"
+    "listingReviews": [],
+    "owner": "661778595655b95152475b65"
   },
   {
     "title": "Luxury Penthouse with City Views",
@@ -92,8 +106,10 @@
     },
     "price": 3500,
     "location": "Los Angeles",
+    "category": "Rooms",
     "country": "United States",
-    "owner": "6611640752970d0ed0e48848"
+    "listingReviews": [],
+    "owner": "661778595655b95152475b65"
   },
   {
     "title": "Ski-In/Ski-Out Chalet",
@@ -104,8 +120,10 @@
     },
     "price": 3000,
     "location": "Verbier",
+    "category": "Iconic Cities",
     "country": "Switzerland",
-    "owner": "6611640752970d0ed0e48848"
+    "listingReviews": [],
+    "owner": "661778595655b95152475b65"
   },
   {
     "title": "Safari Lodge in the Serengeti",
@@ -116,8 +134,10 @@
     },
     "price": 4000,
     "location": "Serengeti National Park",
+    "category": "Rooms",
     "country": "Tanzania",
-    "owner": "6611640752970d0ed0e48848"
+    "listingReviews": [],
+    "owner": "661778595655b95152475b65"
   },
   {
     "title": "Historic Canal House",
@@ -128,8 +148,10 @@
     },
     "price": 1800,
     "location": "Amsterdam",
+    "category": "Trending",
     "country": "Netherlands",
-    "owner": "6611640752970d0ed0e48848"
+    "listingReviews": [],
+    "owner": "661778595655b95152475b65"
   },
   {
     "title": "Private Island Retreat",
@@ -140,8 +162,10 @@
     },
     "price": 10000,
     "location": "Fiji",
+    "category": "Arctic",
     "country": "Fiji",
-    "owner": "6611640752970d0ed0e48848"
+    "listingReviews": [],
+    "owner": "661778595655b95152475b65"
   },
   {
     "title": "Charming Cottage in the Cotswolds",
@@ -152,8 +176,10 @@
     },
     "price": 1200,
     "location": "Cotswolds",
+    "category": "Farms",
     "country": "United Kingdom",
-    "owner": "6611640752970d0ed0e48848"
+    "listingReviews": [],
+    "owner": "661778595655b95152475b65"
   },
   {
     "title": "Historic Brownstone in Boston",
@@ -164,8 +190,10 @@
     },
     "price": 2200,
     "location": "Boston",
+    "category": "Castles",
     "country": "United States",
-    "owner": "6611640752970d0ed0e48848"
+    "listingReviews": [],
+    "owner": "661778595655b95152475b65"
   },
   {
     "title": "Beachfront Bungalow in Bali",
@@ -176,8 +204,10 @@
     },
     "price": 1800,
     "location": "Bali",
+    "category": "Trending",
     "country": "Indonesia",
-    "owner": "6611640752970d0ed0e48848"
+    "listingReviews": [],
+    "owner": "661778595655b95152475b65"
   },
   {
     "title": "Mountain View Cabin in Banff",
@@ -188,8 +218,10 @@
     },
     "price": 1500,
     "location": "Banff",
+    "category": "Trending",
     "country": "Canada",
-    "owner": "6611640752970d0ed0e48848"
+    "listingReviews": [],
+    "owner": "661778595655b95152475b65"
   },
   {
     "title": "Art Deco Apartment in Miami",
@@ -200,8 +232,10 @@
     },
     "price": 1600,
     "location": "Miami",
+    "category": "Castles",
     "country": "United States",
-    "owner": "6611640752970d0ed0e48848"
+    "listingReviews": [],
+    "owner": "661778595655b95152475b65"
   },
   {
     "title": "Tropical Villa in Phuket",
@@ -212,8 +246,10 @@
     },
     "price": 3000,
     "location": "Phuket",
+    "category": "Arctic",
     "country": "Thailand",
-    "owner": "6611640752970d0ed0e48848"
+    "listingReviews": [],
+    "owner": "661778595655b95152475b65"
   },
   {
     "title": "Historic Castle in Scotland",
@@ -224,8 +260,10 @@
     },
     "price": 4000,
     "location": "Scottish Highlands",
+    "category": "Farms",
     "country": "United Kingdom",
-    "owner": "6611640752970d0ed0e48848"
+    "listingReviews": [],
+    "owner": "661778595655b95152475b65"
   },
   {
     "title": "Desert Oasis in Dubai",
@@ -235,9 +273,11 @@
       "url": "https://images.unsplash.com/photo-1518684079-3c830dcef090?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZHViYWl8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60"
     },
     "price": 5000,
+    "category": "Arctic",
     "location": "Dubai",
     "country": "United Arab Emirates",
-    "owner": "6611640752970d0ed0e48848"
+    "listingReviews": [],
+    "owner": "661778595655b95152475b65"
   },
   {
     "title": "Rustic Log Cabin in Montana",
@@ -249,7 +289,9 @@
     "price": 1100,
     "location": "Montana",
     "country": "United States",
-    "owner": "6611640752970d0ed0e48848"
+    "category": "Trending",
+    "listingReviews": [],
+    "owner": "661778595655b95152475b65"
   },
   {
     "title": "Beachfront Villa in Greece",
@@ -260,8 +302,10 @@
     },
     "price": 2500,
     "location": "Mykonos",
+    "category": "Arctic",
     "country": "Greece",
-    "owner": "6611640752970d0ed0e48848"
+    "listingReviews": [],
+    "owner": "661778595655b95152475b65"
   },
   {
     "title": "Eco-Friendly Treehouse Retreat",
@@ -272,8 +316,10 @@
     },
     "price": 750,
     "location": "Costa Rica",
+    "category": "Arctic",
     "country": "Costa Rica",
-    "owner": "6611640752970d0ed0e48848"
+    "listingReviews": [],
+    "owner": "661778595655b95152475b65"
   },
   {
     "title": "Historic Cottage in Charleston",
@@ -284,8 +330,10 @@
     },
     "price": 1600,
     "location": "Charleston",
+    "category": "Amazing Pools",
     "country": "United States",
-    "owner": "6611640752970d0ed0e48848"
+    "listingReviews": [],
+    "owner": "661778595655b95152475b65"
   },
   {
     "title": "Modern Apartment in Tokyo",
@@ -296,8 +344,10 @@
     },
     "price": 2000,
     "location": "Tokyo",
+    "category": "Arctic",
     "country": "Japan",
-    "owner": "6611640752970d0ed0e48848"
+    "listingReviews": [],
+    "owner": "661778595655b95152475b65"
   },
   {
     "title": "Lakefront Cabin in New Hampshire",
@@ -308,8 +358,10 @@
     },
     "price": 1200,
     "location": "New Hampshire",
+    "category": "Arctic",
     "country": "United States",
-    "owner": "6611640752970d0ed0e48848"
+    "listingReviews": [],
+    "owner": "661778595655b95152475b65"
   },
   {
     "title": "Luxury Villa in the Maldives",
@@ -319,9 +371,11 @@
       "url": "https://images.unsplash.com/photo-1439066615861-d1af74d74000?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8bGFrZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60"
     },
     "price": 6000,
+    "category": "Trending",
     "location": "Maldives",
     "country": "Maldives",
-    "owner": "6611640752970d0ed0e48848"
+    "listingReviews": [],
+    "owner": "661778595655b95152475b65"
   },
   {
     "title": "Ski Chalet in Aspen",
@@ -332,8 +386,10 @@
     },
     "price": 4000,
     "location": "Aspen",
+    "category": "Mountains",
     "country": "United States",
-    "owner": "6611640752970d0ed0e48848"
+    "listingReviews": [],
+    "owner": "661778595655b95152475b65"
   },
   {
     "title": "Secluded Beach House in Costa Rica",
@@ -344,7 +400,9 @@
     },
     "price": 1800,
     "location": "Costa Rica",
+    "category": "Iconic Cities",
     "country": "Costa Rica",
-    "owner": "6611640752970d0ed0e48848"
+    "listingReviews": [],
+    "owner": "661778595655b95152475b65"
   }
 ]

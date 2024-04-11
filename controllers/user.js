@@ -1,4 +1,4 @@
-const User = require("../models/User");
+const User = require("../models/user");
 
 module.exports.serveSignupForm = (req, res) => {
   res.render("users/new");
@@ -15,7 +15,7 @@ module.exports.signup = async (req, res) => {
       }
     });
     req.flash("success", "User Successfully Registered! Welcome to Wanderlust");
-    res.redirect("/listings");
+    res.redirect("/login");
   } catch (err) {
     req.flash("error", err.message);
     res.redirect("/users/signup");

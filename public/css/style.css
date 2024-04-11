@@ -8,6 +8,25 @@ body {
   flex-wrap: nowrap;
   overflow-x: auto;
 }
+.search-btn {
+  background-color: red;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 135px;
+  border-radius: 444px;
+  padding: 0px 16px;
+}
+.search-btn:hover {
+  background-color: red;
+  color: white;
+}
+.search-inp {
+  border-radius: 444px;
+  padding: 0.5rem 2rem 0.5rem 2rem;
+}
+
 .filter {
   text-align: center;
   height: 68px;
@@ -119,5 +138,10 @@ footer {
 @media screen and (min-width: 760px) {
   .desc {
     margin-left: -6% !important;
+  }
+}
+@media screen and (max-width: 810px) {
+  .search-form {
+    max-width: 350px;
   }
 }

@@ -9,6 +9,7 @@ const sampleListings = [
     },
     price: 1500,
     location: "Malibu",
+    category: "Trending",
     country: "United States",
   },
   {
@@ -21,6 +22,7 @@ const sampleListings = [
     },
     price: 1200,
     location: "New York City",
+    category: "Mountains",
     country: "United States",
   },
   {
@@ -33,6 +35,7 @@ const sampleListings = [
     },
     price: 1000,
     location: "Aspen",
+    category: "Castles",
     country: "United States",
   },
   {
@@ -45,6 +48,7 @@ const sampleListings = [
     },
     price: 2500,
     location: "Florence",
+    category: "Amazing Pools",
     country: "Italy",
   },
   {
@@ -57,6 +61,7 @@ const sampleListings = [
     },
     price: 800,
     location: "Portland",
+    category: "Camping",
     country: "United States",
   },
   {
@@ -69,6 +74,7 @@ const sampleListings = [
     },
     price: 2000,
     location: "Cancun",
+    category: "Arctic",
     country: "Mexico",
   },
   {
@@ -81,6 +87,7 @@ const sampleListings = [
     },
     price: 900,
     location: "Lake Tahoe",
+    category: "Farms",
     country: "United States",
   },
   {
@@ -93,6 +100,7 @@ const sampleListings = [
     },
     price: 3500,
     location: "Los Angeles",
+    category: "Rooms",
     country: "United States",
   },
   {
@@ -105,6 +113,7 @@ const sampleListings = [
     },
     price: 3000,
     location: "Verbier",
+    category: "Iconic Cities",
     country: "Switzerland",
   },
   {
@@ -117,6 +126,7 @@ const sampleListings = [
     },
     price: 4000,
     location: "Serengeti National Park",
+    category: "Rooms",
     country: "Tanzania",
   },
   {
@@ -129,6 +139,7 @@ const sampleListings = [
     },
     price: 1800,
     location: "Amsterdam",
+    category: "Trending",
     country: "Netherlands",
   },
   {
@@ -141,6 +152,7 @@ const sampleListings = [
     },
     price: 10000,
     location: "Fiji",
+    category: "Arctic",
     country: "Fiji",
   },
   {
@@ -153,6 +165,7 @@ const sampleListings = [
     },
     price: 1200,
     location: "Cotswolds",
+    category: "Farms",
     country: "United Kingdom",
   },
   {
@@ -165,6 +178,7 @@ const sampleListings = [
     },
     price: 2200,
     location: "Boston",
+    category: "Castles",
     country: "United States",
   },
   {
@@ -177,6 +191,7 @@ const sampleListings = [
     },
     price: 1800,
     location: "Bali",
+    category: "Trending",
     country: "Indonesia",
   },
   {
@@ -189,6 +204,7 @@ const sampleListings = [
     },
     price: 1500,
     location: "Banff",
+    category: "Trending",
     country: "Canada",
   },
   {
@@ -201,6 +217,7 @@ const sampleListings = [
     },
     price: 1600,
     location: "Miami",
+    category: "Castles",
     country: "United States",
   },
   {
@@ -213,6 +230,7 @@ const sampleListings = [
     },
     price: 3000,
     location: "Phuket",
+    category: "Arctic",
     country: "Thailand",
   },
   {
@@ -225,6 +243,7 @@ const sampleListings = [
     },
     price: 4000,
     location: "Scottish Highlands",
+    category: "Farms",
     country: "United Kingdom",
   },
   {
@@ -236,6 +255,7 @@ const sampleListings = [
       url: "https://images.unsplash.com/photo-1518684079-3c830dcef090?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZHViYWl8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
     },
     price: 5000,
+    category: "Arctic",
     location: "Dubai",
     country: "United Arab Emirates",
   },
@@ -250,6 +270,7 @@ const sampleListings = [
     price: 1100,
     location: "Montana",
     country: "United States",
+    category: "Trending",
   },
   {
     title: "Beachfront Villa in Greece",
@@ -261,6 +282,7 @@ const sampleListings = [
     },
     price: 2500,
     location: "Mykonos",
+    category: "Arctic",
     country: "Greece",
   },
   {
@@ -273,6 +295,7 @@ const sampleListings = [
     },
     price: 750,
     location: "Costa Rica",
+    category: "Arctic",
     country: "Costa Rica",
   },
   {
@@ -285,6 +308,7 @@ const sampleListings = [
     },
     price: 1600,
     location: "Charleston",
+    category: "Amazing Pools",
     country: "United States",
   },
   {
@@ -297,6 +321,7 @@ const sampleListings = [
     },
     price: 2000,
     location: "Tokyo",
+    category: "Arctic",
     country: "Japan",
   },
   {
@@ -309,6 +334,7 @@ const sampleListings = [
     },
     price: 1200,
     location: "New Hampshire",
+    category: "Arctic",
     country: "United States",
   },
   {
@@ -320,6 +346,7 @@ const sampleListings = [
       url: "https://images.unsplash.com/photo-1439066615861-d1af74d74000?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8bGFrZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
     },
     price: 6000,
+    category: "Trending",
     location: "Maldives",
     country: "Maldives",
   },
@@ -333,6 +360,7 @@ const sampleListings = [
     },
     price: 4000,
     location: "Aspen",
+    category: "Mountains",
     country: "United States",
   },
   {
@@ -345,6 +373,7 @@ const sampleListings = [
     },
     price: 1800,
     location: "Costa Rica",
+    category: "Iconic Cities",
     country: "Costa Rica",
   },
 ];

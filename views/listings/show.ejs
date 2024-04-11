@@ -18,6 +18,7 @@
       <p class="card-text"><strong class="me-4">Rent</strong>&rarr;&nbsp;&nbsp;&nbsp; &#8377;<%= listing.price.toLocaleString("en-IN") %> / night</p>
       <p class="card-text"><strong class="me-2">Country</strong>&rarr;&nbsp;&nbsp; <%= listing.country %></p>
       <p class="card-text"><b class="me-2">Location</b> &rarr;&nbsp;&nbsp; <%= listing.location %></p>
+      <p class="card-text"><b class="me-2">Category</b> &rarr;&nbsp;&nbsp; <%= listing.category %></p>
       <% if(currentUser && currentUser.username === listing.owner.username){ %>
         <p class="card-text mt-5">
           <div class="container-fluid  d-flex">
