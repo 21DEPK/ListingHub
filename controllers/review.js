@@ -2,7 +2,7 @@ const Listing = require("../models/listing");
 const Review = require("../models/review");
 
 module.exports.createReview = async (req, res) => {
-  let listingId = req.originalUrl.split("/")[2];
+  let { listingId } = req.params;
   let newReview = new Review({ ...req.body.reviews, createdBy: req.user._id });
   let listing = await Listing.findById(listingId);
   listing.listingReviews.push(newReview);
@@ -13,7 +13,7 @@ module.exports.createReview = async (req, res) => {
 };
 
 module.exports.deleteReview = async (req, res) => {
-  let listingId = req.originalUrl.split("/")[2];
+  let { listingId } = req.params;
   let { reviewId } = req.params;
   await Listing.findByIdAndUpdate(listingId, {
     $pull: { listingReviews: reviewId },

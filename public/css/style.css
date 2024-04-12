@@ -2,12 +2,6 @@ body {
   overflow-x: hidden;
   user-select: none;
 }
-.preloader {
-  min-height: 100vh;
-  min-width: 100%;
-  background: white url(../src/loading-9414_512.gif) no-repeat center;
-}
-
 .filters {
   display: flex;
   flex-wrap: nowrap;

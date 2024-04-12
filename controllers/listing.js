@@ -45,7 +45,7 @@ module.exports.showListing = async (req, res) => {
 
 //  new listing form
 module.exports.renderNewListingForm = (req, res) => {
-  res.render("listings/new", { currentUser: req.user });
+  res.render("listings/new");
 };
 
 // create
@@ -64,7 +64,7 @@ module.exports.create = async (req, res) => {
     console.log("Error --> ", err._message);
   }
   req.flash("success", "New Listing Created!");
-  res.redirect("/");
+  res.redirect("/listings");
 };
 
 // edit form

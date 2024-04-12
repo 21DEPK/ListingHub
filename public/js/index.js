@@ -35,5 +35,5 @@ if (document.querySelector(".home")) {
 
 let preLoader = document.querySelector(".preloader");
 window.addEventListener("load", () => {
-  preLoader.style.display = "none";
+  preLoader.remove();
 });
