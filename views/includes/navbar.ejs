@@ -22,14 +22,18 @@
           >
         </li>
       </ul>
-      <form class="d-flex search-form ms-auto nav-item">
+      <form
+        action="/listings/search"
+        class="d-flex search-form ms-md-auto flex-column flex-sm-row nav-item"
+      >
         <input
-          class="form-control search-inp me-2"
+          class="form-control flex-shrink-0 flex-sm-shrink-1 search-inp me-2"
           type="search"
+          name="q"
           placeholder="Search Destination"
         />
-        <button class="btn search-btn" type="submit">
-          <i class="fa-solid fa-magnifying-glass"></i> Search
+        <button class="btn search-btn mt-sm-0 mt-2" type="submit">
+          <i class="fa-solid me-1 p-2 fa-magnifying-glass"></i> Search
         </button>
       </form>
       <!-- Right aligned links -->

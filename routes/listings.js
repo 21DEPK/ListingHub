@@ -15,6 +15,7 @@ const upload = multer({ storage });
 //     cb(null, `${Date.now()}-${file.originalname}`);
 //   },
 // });
+router.get("/search", wrapAsync(listingControllers.search));
 
 router
   .route("/")

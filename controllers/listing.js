@@ -14,7 +14,21 @@ module.exports.home = async (req, res) => {
     data,
   });
 };
-
+// search
+module.exports.search = async (req, res) => {
+  let { q } = req.query;
+  let data = await Listing.find({
+    title: { $regex: `${q}*`, $options: "i" },
+  })
+    .populate({
+      path: "listingReviews",
+      populate: {
+        path: "createdBy",
+      },
+    })
+    .populate("owner");
+  res.render("listings/home", { data });
+};
 // show
 module.exports.showListing = async (req, res) => {
   let { id } = req.params;

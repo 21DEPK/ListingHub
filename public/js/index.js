@@ -32,3 +32,8 @@ if (document.querySelector(".home")) {
     location.href = `${location.origin}/`;
   });
 }
+
+let preLoader = document.querySelector(".preloader");
+window.addEventListener("load", () => {
+  preLoader.style.display = "none";
+});

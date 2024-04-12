@@ -2,6 +2,11 @@ body {
   overflow-x: hidden;
   user-select: none;
 }
+.preloader {
+  min-height: 100vh;
+  min-width: 100%;
+  background: white url(../src/loading-9414_512.gif) no-repeat center;
+}
 
 .filters {
   display: flex;
@@ -143,5 +148,21 @@ footer {
 @media screen and (max-width: 810px) {
   .search-form {
     max-width: 350px;
+  }
+  .search-btn {
+    max-width: fit-content;
+  }
+}
+@media screen and (max-width: 767px) {
+  .search-form {
+    margin-left: 0 !important;
+  }
+}
+@media screen and (min-width: 380px) and (max-width: 575px) {
+  .card {
+    min-height: 390px;
+  }
+  .card-img-top {
+    max-height: 280px;
   }
 }
