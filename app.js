@@ -17,7 +17,7 @@ const listingRoutes = require("./routes/listings.js"), //requiring routes
   userRoutes = require("./routes/users.js");
 const app = express();
 
-let totalRequests = 0;
+// let totalRequests = 0;
 
 app.set("view engine", "ejs");
 app.engine("ejs", ejsMate);
@@ -60,18 +60,18 @@ app.use((req, res, next) => {
 passport.use(new LocalStrategy(User.authenticate())); // authenticating with local strategy
 passport.serializeUser(User.serializeUser()); // serializing the user to be stored in sessions
 passport.deserializeUser(User.deserializeUser()); // deserializing the user to be removed from sessions
-app.use((req, res, next) => {
-  totalRequests++;
-  let anonymous = "anonymous";
-  console.log(
-    `Request_Number:[${totalRequests}] - User:[${
-      req.session.passport ? req.session.passport.user : anonymous
-    }] - DateTime:[${new Date(Date.now()).toLocaleDateString()} ${new Date(
-      Date.now()
-    ).toLocaleTimeString()}] - URL:["${req.originalUrl}"]`
-  );
-  next();
-});
+// app.use((req, res, next) => {      // lite morgan :)
+//   totalRequests++;
+//   let anonymous = "anonymous";
+//   console.log(
+//     `Request_Number:[${totalRequests}] - User:[${
+//       req.session.passport ? req.session.passport.user : anonymous
+//     }] - DateTime:[${new Date(Date.now()).toLocaleDateString()} ${new Date(
+//       Date.now()
+//     ).toLocaleTimeString()}] - URL:["${req.originalUrl}"]`
+//   );
+//   next();
+// });
 // index route
 app.get("/", (req, res) => {
   res.redirect("/listings");
@@ -88,7 +88,7 @@ app.all("*", (req, res, next) => {
 });
 // express error
 app.use((err, req, res, next) => {
-  console.log(err.message);
+  console.log(`${req.originalUrl} --> ${err.message}`);
   let { statusCode, message } = err;
   res.render("ERROR", { statusCode, message });
 });

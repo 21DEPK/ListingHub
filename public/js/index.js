@@ -1,3 +1,12 @@
+window.addEventListener("load", () => {
+  document.querySelector(".preloader").remove();
+});
+
+setTimeout(() => {
+  if (document.querySelector("[data-bs-dismiss]")) {
+    document.querySelector("[data-bs-dismiss]").click();
+  }
+}, 1800);
 (() => {
   "use strict";
 
@@ -20,20 +29,8 @@
     );
   });
 })();
-
-setTimeout(() => {
-  if (document.querySelector("[data-bs-dismiss]")) {
-    document.querySelector("[data-bs-dismiss]").click();
-  }
-}, 1600);
-
 if (document.querySelector(".home")) {
   document.querySelector(".home").addEventListener("click", () => {
     location.href = `${location.origin}/`;
   });
 }
-
-let preLoader = document.querySelector(".preloader");
-window.addEventListener("load", () => {
-  preLoader.remove();
-});

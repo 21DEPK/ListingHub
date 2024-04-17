@@ -16,6 +16,7 @@ const upload = multer({ storage });
 //   },
 // });
 router.get("/search", wrapAsync(listingControllers.search));
+router.get("/filters/:value", wrapAsync(listingControllers.filter));
 
 router
   .route("/")

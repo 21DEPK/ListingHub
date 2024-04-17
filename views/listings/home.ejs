@@ -1,7 +1,8 @@
 <% layout('/layouts/boilerplate.ejs') -%>
+
 <div class="container position-relative">
   <div class="filters mt-3">
-    <div class="filter first">
+    <div class="filter">
       <div><i class="fa-solid fa-fire"></i></div>
       <p>Trending</p>
     </div>
@@ -39,10 +40,10 @@
     </div>
   </div>
   <div
-    class="row row-cols-lg-4 row-cols-md-3 row-cols-sm-2 justify-content-center"
+    class="row row-cols-lg-4 row-cols-md-3 row-cols-sm-2 justify-content-flex-start"
   >
-    <% for(let listing of data) { %>
-    <a href="/listings/<%= listing._id %>">
+    <% for(let listing of data) { let i = 1;%>
+    <a href="/listings/<%= listing._id %>" class="item_listing">
       <div class="card mx-sm-0">
         <img
           src="<%= listing.image.url %>"
@@ -60,8 +61,62 @@
       </div>
     </a>
     <% } %>
+    <div class="load-more-card mx-sm-0 d-flex justify-content-flex-end">
+      <button type="button" class="btn btn-outline-success ms-4 load-more">
+        load more
+      </button>
+      <img src="/src/load_more.gif" class="ms-4 load-more" alt="load_more" />
+    </div>
   </div>
   <% if(data.length===0){ %>
   <h1>No Listing Found!</h1>
   <% } %>
 </div>
+<script>
+  let allListings = document.querySelectorAll(".item_listing");
+
+  allListings.forEach((item) => {
+    item.style.display = "none";
+  });
+
+  let load_more = document.querySelector(".load-more");
+  let card = document.querySelector(".load-more-card");
+  let allListingsArray = Array.from(allListings);
+  card.children[1].style.display = "none";
+  let i = 0;
+  for (; i < 10; i++) {
+    if (i === allListingsArray.length) {
+      load_more.style.display = "none";
+      break;
+    }
+    allListingsArray[i].style.display = "block";
+  }
+  load_more.addEventListener("click", (e) => {
+    card.children[0].style.display = "none";
+    card.children[1].style.display = "block";
+    setTimeout(() => {
+      card.children[0].style.display = "block";
+      card.children[1].style.display = "none";
+      let t = i ? i + 5 : 8;
+      for (; i < t; i++) {
+        if (i === allListingsArray.length) {
+          load_more.style.display = "none";
+          return;
+        }
+        allListingsArray[i].style.display = "block";
+      }
+    }, 800);
+  });
+</script>
+<script>
+  const filters = document.querySelectorAll(".filter");
+  let filterValue = location.pathname.split("/")[3];
+  filters.forEach((filter) => {
+    filter.addEventListener("click", (e) => {
+      location.pathname = `listings/filters/${filter.children[1].innerText}`;
+    });
+    if (filterValue === filter.children[1].innerText) {
+      filter.classList.add("active");
+    }
+  });
+</script>

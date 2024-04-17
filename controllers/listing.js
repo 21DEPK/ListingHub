@@ -29,6 +29,21 @@ module.exports.search = async (req, res) => {
     .populate("owner");
   res.render("listings/home", { data });
 };
+// filters
+module.exports.filter = async (req, res) => {
+  let { value } = req.params;
+  let data = await Listing.find({
+    category: value,
+  })
+    .populate({
+      path: "listingReviews",
+      populate: {
+        path: "createdBy",
+      },
+    })
+    .populate("owner");
+  res.render("listings/home", { data });
+};
 // show
 module.exports.showListing = async (req, res) => {
   let { id } = req.params;

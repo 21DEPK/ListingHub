@@ -1,3 +1,6 @@
+html {
+  scroll-behavior: smooth;
+}
 body {
   overflow-x: hidden;
   user-select: none;
@@ -29,9 +32,15 @@ body {
 .filter {
   text-align: center;
   height: 68px;
-  margin-left: 1.4rem;
   opacity: 0.7;
   flex-shrink: 0;
+}
+.filter + .filter {
+  /* apply all css to elements with filter class except first element */
+  margin-left: 1.4rem;
+}
+.filters .active {
+  opacity: 1;
 }
 .filter:hover {
   opacity: 1;
@@ -42,9 +51,17 @@ body {
 .filters::-webkit-scrollbar {
   display: none;
 }
-
-.first {
-  margin-left: 0;
+.load-more {
+  max-width: fit-content;
+  align-self: center;
+  justify-self: center;
+}
+.load-more-card {
+  min-height: 140px;
+}
+[alt="load_more"] {
+  max-height: 40px;
+  max-width: 40px;
 }
 ul {
   list-style-type: none;
