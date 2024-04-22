@@ -3,14 +3,15 @@
   <div class="progress"></div>
   <script>
     const progress = document.querySelector(".progress");
-    window.onscroll = function () {
+    function scrollHandler() {
       let scrollHeight = document.documentElement.scrollHeight;
       let scrollTop = window.scrollY;
       let viewportHeight = window.innerHeight;
       let scrolledPercentage =
         (scrollTop / (scrollHeight - viewportHeight)) * 100;
       progress.style.width = `${scrolledPercentage}%`;
-    };
+    }
+    window.onscroll = scrollHandler;
   </script>
 </div>
 
@@ -53,6 +54,15 @@
       <p>Arctic</p>
     </div>
   </div>
+  <script>
+    window.addEventListener("resize", filtersPosition);
+    function filtersPosition() {
+      document.querySelector(".filters").style.top = `${
+        document.querySelector(".navbar").offsetHeight - 1
+      }px`;
+    }
+    filtersPosition();
+  </script>
   <div
     class="row row-cols-lg-4 row-cols-md-3 row-cols-sm-2 justify-content-flex-start"
   >
@@ -76,7 +86,7 @@
     </a>
     <% } %>
     <div class="load-more-card mx-sm-0 d-flex justify-content-flex-center">
-      <button type="button" class="btn btn-outline-success ms-4 load-more">
+      <button type="button" class="btn btn-outline-success load-more">
         load more
       </button>
       <img src="/src/load_more.gif" class="ms-4 load-more" alt="load_more" />
@@ -88,11 +98,9 @@
 </div>
 <script>
   let allListings = document.querySelectorAll(".item_listing");
-
   allListings.forEach((item) => {
     item.style.display = "none";
   });
-
   let load_more = document.querySelector(".load-more");
   let card = document.querySelector(".load-more-card");
   let allListingsArray = Array.from(allListings);
@@ -119,6 +127,7 @@
         }
         allListingsArray[i].style.display = "block";
       }
+      scrollHandler();
     }, 400);
   });
 </script>

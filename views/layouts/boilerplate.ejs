@@ -4,6 +4,25 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Holiday Homes & Apartment Rent</title>
+    <style class="pre-loader">
+      .preloader {
+        min-height: 100%;
+        min-width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: white no-repeat center;
+        z-index: 2345245;
+      }
+      .preloader img {
+        width: max-content;
+        max-width: 100%;
+        object-fit: contain;
+        justify-self: center;
+        height: fit-content;
+        z-index: inherit;
+      }
+    </style>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
@@ -23,24 +42,7 @@
     <script src="/js/index.js" defer></script>
   </head>
   <body>
-    <style class="pre-loader">
-      .preloader {
-        min-height: 100vh;
-        min-width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background: white no-repeat center;
-      }
-      .preloader img {
-        width: max-content;
-        max-width: 100%;
-        object-fit: contain;
-        justify-self: center;
-        height: fit-content;
-      }
-    </style>
-    <div class="preloader position-absolute">
+    <div class="preloader fixed-top">
       <img src="/src/loading-9414_512.gif" alt="loading animation" />
     </div>
     <%- include('../includes/navbar.ejs') %> <%-

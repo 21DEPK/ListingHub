@@ -19,6 +19,7 @@ body {
   border-top-right-radius: 999px;
   border-bottom-right-radius: 999px;
   background-color: red;
+  transition: width 0.2s linear;
 }
 .filters {
   top: 74px;
@@ -75,13 +76,16 @@ body {
   max-width: fit-content;
   align-self: center;
   justify-self: center;
+  margin-left: 34% !important;
 }
 .load-more-card {
   min-height: 140px;
 }
 [alt="load_more"] {
-  max-height: 40px;
-  max-width: 40px;
+  max-height: 50px;
+  max-width: 50px;
+  background: white;
+  margin-left: 44% !important;
 }
 ul {
   list-style-type: none;

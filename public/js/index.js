@@ -2,13 +2,22 @@ window.addEventListener("load", () => {
   document.querySelector(".preloader").remove();
   document.querySelector(".pre-loader").remove();
 });
-window.addEventListener("resize", filtersPosition);
-function filtersPosition() {
-  document.querySelector(".filters").style.top = `${
-    document.querySelector(".navbar").offsetHeight - 1
-  }px`;
+
+function loading(seconds) {
+  let a = Date.now();
+  let b = Date.now() + +seconds;
+  for (let i = 0; i < b; ) {
+    i = Date.now();
+  }
+  let c = Date.now();
+  console.log(
+    `${
+      (c - a) / 1000
+    } seconds Loading animation and it is intentionally injected in the code only on home page.`
+  );
 }
-filtersPosition();
+location.pathname === "/listings" ? loading(1200) : {};
+
 setTimeout(() => {
   if (document.querySelector("[data-bs-dismiss]")) {
     document.querySelector("[data-bs-dismiss]").click();
