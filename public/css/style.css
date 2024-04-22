@@ -5,7 +5,27 @@ body {
   overflow-x: hidden;
   user-select: none;
 }
+.progress-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999999;
+  min-width: 100vw;
+}
+.progress {
+  width: 0%;
+  height: 0.41vh;
+  z-index: inherit;
+  border-top-right-radius: 999px;
+  border-bottom-right-radius: 999px;
+  background-color: red;
+}
 .filters {
+  top: 74px;
+  background-color: white;
+  /* backdrop-filter: blur(34px); */
+  z-index: 999;
+  max-height: 50px;
   display: flex;
   flex-wrap: nowrap;
   overflow-x: auto;

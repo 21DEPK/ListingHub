@@ -1,7 +1,14 @@
 window.addEventListener("load", () => {
   document.querySelector(".preloader").remove();
+  document.querySelector(".pre-loader").remove();
 });
-
+window.addEventListener("resize", filtersPosition);
+function filtersPosition() {
+  document.querySelector(".filters").style.top = `${
+    document.querySelector(".navbar").offsetHeight - 1
+  }px`;
+}
+filtersPosition();
 setTimeout(() => {
   if (document.querySelector("[data-bs-dismiss]")) {
     document.querySelector("[data-bs-dismiss]").click();

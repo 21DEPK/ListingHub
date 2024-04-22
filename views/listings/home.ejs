@@ -1,7 +1,21 @@
 <% layout('/layouts/boilerplate.ejs') -%>
+<div class="progress-container">
+  <div class="progress"></div>
+  <script>
+    const progress = document.querySelector(".progress");
+    window.onscroll = function () {
+      let scrollHeight = document.documentElement.scrollHeight;
+      let scrollTop = window.scrollY;
+      let viewportHeight = window.innerHeight;
+      let scrolledPercentage =
+        (scrollTop / (scrollHeight - viewportHeight)) * 100;
+      progress.style.width = `${scrolledPercentage}%`;
+    };
+  </script>
+</div>
 
 <div class="container position-relative">
-  <div class="filters mt-3">
+  <div class="filters position-sticky mt-3">
     <div class="filter">
       <div><i class="fa-solid fa-fire"></i></div>
       <p>Trending</p>
@@ -55,13 +69,13 @@
         <div class="card-body">
           <h5 class="card-title"><%= listing.title %></h5>
           <p class="card-text text-justify">
-            &#8377;<%= listing.price.toLocaleString("en-IN") %> /night
+            &#8377;<%= listing.price.toLocaleString("en-IN") %> /day
           </p>
         </div>
       </div>
     </a>
     <% } %>
-    <div class="load-more-card mx-sm-0 d-flex justify-content-flex-end">
+    <div class="load-more-card mx-sm-0 d-flex justify-content-flex-center">
       <button type="button" class="btn btn-outline-success ms-4 load-more">
         load more
       </button>
@@ -84,7 +98,7 @@
   let allListingsArray = Array.from(allListings);
   card.children[1].style.display = "none";
   let i = 0;
-  for (; i < 10; i++) {
+  for (; i < 8; i++) {
     if (i === allListingsArray.length) {
       load_more.style.display = "none";
       break;
@@ -105,7 +119,7 @@
         }
         allListingsArray[i].style.display = "block";
       }
-    }, 800);
+    }, 400);
   });
 </script>
 <script>
