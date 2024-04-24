@@ -22,14 +22,17 @@ body {
   transition: width 0.2s linear;
 }
 .filters {
-  top: 74px;
+  top: 78px;
   background-color: white;
-  /* backdrop-filter: blur(34px); */
+  /* backdrop-filter: blur(44px); */
   z-index: 999;
   max-height: 50px;
   display: flex;
   flex-wrap: nowrap;
+  gap: 6px;
   overflow-x: auto;
+  overflow-y: hidden;
+  margin-bottom: 12px;
 }
 .search-btn {
   background-color: red;
@@ -52,8 +55,10 @@ body {
 
 .filter {
   text-align: center;
+  margin-top: 4px;
   height: 68px;
   opacity: 0.7;
+  cursor: pointer;
   flex-shrink: 0;
 }
 .filter + .filter {
@@ -114,6 +119,7 @@ ul {
 a {
   text-decoration: none;
   color: black;
+  transition: all 0.4s ease;
 }
 footer a:hover {
   color: red !important;

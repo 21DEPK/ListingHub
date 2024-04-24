@@ -76,6 +76,7 @@ app.all("*", (req, res, next) => {
 // express error
 app.use((err, req, res, next) => {
   console.log(`${req.originalUrl} --> ${err.message}`);
+  console.log(err.statusCode);
   let { statusCode, message } = err;
   res.render("ERROR", { statusCode, message });
 });
