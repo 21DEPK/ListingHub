@@ -14,7 +14,8 @@ const flash = require("connect-flash");
 const LocalStrategy = require("passport-local").Strategy;
 const listingRoutes = require("./routes/listings.js"), //requiring routes
   reviewRoutes = require("./routes/reviews.js"),
-  userRoutes = require("./routes/users.js");
+  userRoutes = require("./routes/users.js"),
+  paymentRoute = require("./routes/payment.js");
 const app = express();
 
 // let totalRequests = 0;
@@ -65,6 +66,8 @@ app.get("/", (req, res) => {
 });
 
 // routes
+
+app.use("/payment", paymentRoute); // listing routes
 app.use("/listings", listingRoutes); // listing routes
 app.use("/listings/:listingId/reviews", reviewRoutes); // reviews routes
 app.use("/users", userRoutes); // users routes

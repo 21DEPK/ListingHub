@@ -29,10 +29,62 @@
           </div>
         </p>
       <% } %>
+
+      <form class="bookingForm" method="POST" >
+        <input type="hidden" name="amount" value="<%= listing.price %>">
+        <input type="hidden" name="name" value="<%= listing.title %>">
+        <input type="hidden" name="location" value="<%= listing.location %>">
+        <input type="hidden" name="category" value="<%= listing.category %>">
+        <button class="btn btn-outline-success mt-2" type="submit">Book Now</button>
+      </form>
     </div>
   </div>
 </div>
+
+<script>
+  document.querySelector('.bookingForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const formData = new FormData(this);
+    const place ={};
+    for(let [key,value] of formData.entries()){
+      place[key]=value;
+    }
+    fetch('/payment/createOrder', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({place})
+    })
+    .then(response => response.json())
+    .then(data => {
+  
+      // Create the Razorpay Checkout form
+      const options = {
+        key: data.key_id,
+        amount: data.amount, // amount received from the server
+        currency: 'INR',
+        name: 'Deepak',
+        description: 'Test Transaction',
+        image: 'https://wanderlust-fucc.onrender.com/src/demo_user.png',
+        order_id: data.order_id,
+        handler: function (response) {
+          alert('Payment Successfull');
+        }
+      };
+  
+      const rzp1 = new Razorpay(options);
+      rzp1.open();
+    })
+    .catch(error => {
+      alert('Payment Failed');
+    });
+  });
+  </script>
+  
+
 <hr>
+
 
 <% if(currentUser){ %>
 <div class="container p-4">
