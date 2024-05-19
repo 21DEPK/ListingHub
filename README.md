@@ -1,3 +1,3 @@
 # ListingHub
 
-Live Link : [https://wanderlust-fucc.onrender.com/listings](https://wanderlust-fucc.onrender.com/listings)
+Live Link : [https://listinghub.onrender.com/](https://listinghub.onrender.com/)
