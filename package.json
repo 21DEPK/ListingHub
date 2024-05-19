@@ -2,7 +2,7 @@
   "engines": {
     "node": "21.1.0"
   },
-  "name": "wanderlust",
+  "name": "ListingHub",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",

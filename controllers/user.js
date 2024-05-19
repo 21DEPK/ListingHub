@@ -15,7 +15,7 @@ module.exports.signup = async (req, res) => {
       }
       req.flash(
         "success",
-        "User Successfully Registered! Welcome to Wanderlust"
+        "User Successfully Registered! Welcome to ListingHub"
       );
       res.redirect("/listings");
     });
@@ -31,7 +31,7 @@ module.exports.serveLoginForm = (req, res) => {
 
 module.exports.login = async (req, res) => {
   let { username } = req.body;
-  req.flash("success", `${username} Welcome back! to Wanderlust`);
+  req.flash("success", `${username} Welcome back! to ListingHub`);
   res.redirect(
     301,
     res.locals.redirectUrl ? res.locals.redirectUrl : "/listings"
